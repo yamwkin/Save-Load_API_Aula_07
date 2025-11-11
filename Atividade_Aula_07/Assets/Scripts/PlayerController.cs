@@ -40,11 +40,21 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    public void OnCollisionEnter(Collision collision)
+
+    public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Item"))
         {
             QuantidadeDeItens++;
+            Destroy(collision.gameObject);
+        }
+
+        if (collision.gameObject.CompareTag("Dano"))
+        {
+            Vida--;
+            Destroy(collision.gameObject);
         }
     }
+
+
 }
